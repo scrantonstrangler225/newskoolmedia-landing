@@ -7,7 +7,6 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
 
-    /* Reset */
     * {
       margin: 0;
       padding: 0;
@@ -20,7 +19,7 @@
       background: linear-gradient(135deg, #667eea, #764ba2);
       color: white;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
       text-align: center;
       padding: 20px;
@@ -99,13 +98,29 @@
       display: block;
     }
 
-    /* Subtle glow on hover */
     .container:hover {
       box-shadow: 0 0 40px rgba(255 255 255 / 0.6);
       transition: box-shadow 0.4s ease;
     }
 
-    /* Responsive */
+    footer {
+      margin-top: 40px;
+      padding: 20px;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.7);
+      text-align: center;
+    }
+
+    footer a {
+      color: rgba(255, 255, 255, 0.9);
+      text-decoration: none;
+      margin: 0 8px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
     @media (max-width: 480px) {
       .container {
         padding: 30px 20px;
@@ -127,24 +142,36 @@
   </style>
 </head>
 <body>
+
   <div class="container" role="main" aria-label="Beta signup form for Brand Foobar">
     <h1>New Skool Media</h1>
     <p class="lead">Innovative solutions to enhance sports and media alike.</p>
     <p class="subtext">We're building next-generation sports platform for creators and teams alike. Join our private beta to be among the first to try it out.</p>
 
     <div class="form-container" aria-live="polite">
-      <iframesrc="https://docs.google.com/forms/d/e/FORM_ID_FOOBAR/viewform?embedded=true"
+      <iframe 
+        src="https://docs.google.com/forms/d/e/FORM_ID_FOOBAR/viewform?embedded=true"
         title="Beta signup form for Brand Foobar"
         loading="lazy"
         frameborder="0"
         marginheight="0"
-        marginwidth="0"
-      >
+        marginwidth="0">
         Loading…
       </iframe>
     </div>
   </div>
+
+  <footer>
+    <div>
+      <a href="mailto:innovation@newskoolmedia.world">Contact</a>
+      |
+      <a href="https://linkedin.com/company/new-skool-media-world" target="_blank" rel="noopener noreferrer">Linkedin</a>
+    </div>
+    <div style="margin-top: 10px;">
+      © 2025 New Skool Media. All rights reserved.
+    </div>
+  </footer>
+
 </body>
 </html>
-
 

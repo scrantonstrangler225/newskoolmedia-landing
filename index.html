@@ -2,10 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>New Skool Media— Beta Signup</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>New Skool Media—Beta Signup</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+    :root {
+      --primary: #00d9e8; /* Neon Blue */
+      --accent: #ff4081; /* Neon Pink */
+      --bg-dark: #121212; /* Dark background */
+      --text-light: #ffffff; /* Light text */
+      --text-muted: #bbbbbb; /* Muted text */
+      --button-hover: #ff80c0; /* Hover effect for buttons */
+    }
 
     * {
       margin: 0;
@@ -13,161 +20,286 @@
       box-sizing: border-box;
     }
 
-    body, html {
-      height: 100%;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #667eea, #764ba2);
-      color: white;
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: var(--text-light);
+      background: var(--bg-dark);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      background: var(--bg-dark);
+      z-index: 100;
+      border-bottom: 1px solid #444;
+    }
+
+    header .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 60px;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--primary);
+    }
+
+    .cta {
+      background: var(--primary);
+      color: var(--text-light);
+      padding: 0.6rem 1.3rem;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: background 0.2s ease;
+      cursor: pointer;
+      display: inline-block;
+      border: none;
+      font-size: 1rem;
+    }
+
+    .cta:hover {
+      background: var(--button-hover);
+    }
+
+    .hero {
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
-      padding: 20px;
-      min-height: 100vh;
-      overflow-x: hidden;
+      padding: 100px 20px 80px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: var(--text-light);
     }
 
-    .container {
-      background: rgba(255 255 255 / 0.15);
-      backdrop-filter: blur(12px);
-      border-radius: 24px;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.25);
-      max-width: 520px;
-      width: 100%;
-      padding: 40px 30px;
-      animation: fadeInScale 0.8s ease forwards;
+    .hero h1 {
+      font-size: 2.7rem;
+      max-width: 800px;
+      margin-bottom: 1rem;
     }
 
-    @keyframes fadeInScale {
-      0% {
-        opacity: 0;
-        transform: scale(0.95);
-      }
-      100% {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-
-    h1 {
-      font-weight: 600;
-      font-size: 3rem;
-      margin-bottom: 10px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.35);
-    }
-
-    p.lead {
-      font-weight: 300;
+    .hero p {
+      max-width: 600px;
       font-size: 1.2rem;
-      margin-bottom: 1.5rem;
-      color: rgba(255 255 255 / 0.9);
-      text-shadow: 0 1px 4px rgba(0,0,0,0.3);
-    }
-
-    p.subtext {
-      font-weight: 300;
-      font-size: 1rem;
+      color: var(--text-muted);
       margin-bottom: 2rem;
-      color: rgba(255 255 255 / 0.7);
-      text-shadow: 0 1px 3px rgba(0,0,0,0.25);
     }
 
-    .form-container {
-      border-radius: 18px;
-      overflow: hidden;
-      box-shadow: 0 0 16px rgba(255 255 255 / 0.3);
-      height: 520px;
-      animation: slideUpFadeIn 0.8s 0.3s ease forwards;
-      opacity: 0;
-      transform: translateY(20px);
+    .beta-section {
+      background: #1a1a1a;
+      padding: 60px 20px;
     }
 
-    @keyframes slideUpFadeIn {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    .beta-title {
+      text-align: center;
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 2rem;
     }
 
-    iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
+    .beta-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #2a2a2a;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      text-align: left;
+    }
+
+    .beta-form label {
       display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      color: var(--text-light);
     }
 
-    .container:hover {
-      box-shadow: 0 0 40px rgba(255 255 255 / 0.6);
-      transition: box-shadow 0.4s ease;
+    .beta-form input,
+    .beta-form select,
+    .beta-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #444;
+      border-radius: 5px;
+      font-size: 1rem;
+      color: var(--text-light);
+      background: #333;
+    }
+
+    .beta-form button {
+      background: var(--primary);
+      color: var(--text-light);
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s ease;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .beta-form button:hover {
+      background: var(--button-hover);
     }
 
     footer {
-      margin-top: 40px;
-      padding: 20px;
-      font-size: 0.9rem;
-      color: rgba(255, 255, 255, 0.7);
+      padding: 40px 20px;
       text-align: center;
+      font-size: 0.9rem;
+      color: var(--text-muted);
     }
 
     footer a {
-      color: rgba(255, 255, 255, 0.9);
+      color: var(--primary);
       text-decoration: none;
-      margin: 0 8px;
     }
 
     footer a:hover {
       text-decoration: underline;
     }
 
-    @media (max-width: 480px) {
-      .container {
-        padding: 30px 20px;
+    @media (max-width: 768px) {
+      .hero {
+        padding: 60px 20px;
       }
-      h1 {
-        font-size: 2.2rem;
-        letter-spacing: 2px;
-      }
-      p.lead {
-        font-size: 1rem;
-      }
-      p.subtext {
-        font-size: 0.9rem;
-      }
-      .form-container {
-        height: 600px;
+      .hero h1 {
+        font-size: 2rem;
       }
     }
   </style>
 </head>
 <body>
-
-  <div class="container" role="main" aria-label="Beta signup form for Brand Foobar">
-    <h1>New Skool Media</h1>
-    <p class="lead">Innovative solutions to enhance sports and media alike.</p>
-    <p class="subtext">We're building next-generation sports platform for creators and teams alike. Join our private beta to be among the first to try it out.</p>
-
-    <div class="form-container" aria-live="polite">
-      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScyG6QxV-8NFA5OHqH4GCbLPHcp3AeDaXR0zzymCDD7g9iojg/viewform?embedded=true" width="640" height="3102" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+  <header>
+    <div class="container nav">
+      <div class="logo">New Skool Media</div>
     </div>
-  </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <h1>Innovative Solutions for Sports Creators</h1>
+      <p>Join our private beta and be one of the first to experience a platform that connects teams, leagues, and fans in new, exciting ways.</p>
+      <a href="#join-beta" class="cta">Join the Beta</a>
+    </section>
+
+    <section class="beta-section" id="join-beta">
+      <div class="container">
+        <h2 class="beta-title">Join the New Skool Media Beta</h2>
+        <form 
+          class="beta-form"
+          action="https://docs.google.com/forms/d/e/*******************/formResponse" 
+          method="POST" 
+          target="_blank" 
+          novalidate
+        >
+          <label for="fullName">Full Name *</label>
+          <input 
+            type="text" 
+            id="fullName" 
+            name="entry.1246836492" 
+            required 
+            placeholder="Your full name" 
+          />
+
+          <label for="email">Email Address *</label>
+          <input 
+            type="email" 
+            id="email" 
+            name="entry.420741825" 
+            required 
+            placeholder="you@example.com" 
+          />
+
+          <label for="role">I am a *</label>
+          <select 
+            id="role" 
+            name="entry.XXXXXXXXXXXXXXXX" 
+            required
+          >
+            <option value="" disabled selected>Select your role</option>
+            <option value="Team/League">Team/League</option>
+            <option value="Local Organization">Local Organization</option>
+            <option value="Content Creator">Content Creator</option>
+            <option value="Coach/Scout">Scout</option>
+                        <option value="Coach/Scout">Coach</option>
+
+            <option value="Athletic Director">Athletic Director</option>
+            <option value="Other">Other</option>
+          </select>
+
+          <label for="sport">Select Sport *</label>
+          <select 
+            id="sport" 
+            name="entry.XXXXXXXXXXXXXXXX" 
+            required
+          >
+            <option value="" disabled selected>Select a sport</option>
+            <option value="NFL">NFL</option>
+            <option value="MLS">MLS</option>
+            <option value="NBA">NBA</option>
+            <option value="NHL">NHL</option>
+            <option value="MMA">MMA / Combat Sports</option>
+            <option value="Motorsports">Motorsports / F1</option>
+            <option value="Golf">Golf</option>
+            <option value="Tennis">Tennis / Pickleball</option>
+            <option value="CollegeSports">College Sports</option>
+            <option value="Cricket">Cricket</option>
+            <option value="MLB">MLB</option>
+            <option value="Other">Other</option>
+          </select>
+
+          <label for="platformExcitement">What are you most excited to see in a new podcasting platform? *</label>
+          <select 
+            id="platformExcitement" 
+            name="entry.XXXXXXXXXXXXXXXX" 
+            required
+          >
+            <option value="" disabled selected>Select your excitement</option>
+            <option value="AudienceAnalytics">Better audience analytics</option>
+            <option value="FanEngagement">Easier fan engagement</option>
+            <option value="Discoverability">Discoverability & promotion tools</option>
+            <option value="Monetization">Monetization options</option>
+            <option value="LiveAudio">Live audio or fan call-ins</option>
+            <option value="Collaboration">Podcast collaboration features</option>
+            <option value="HostingTools">Hosting & distribution tools</option>
+            <option value="Other">Other</option>
+          </select>
+
+          <button type="submit">Join Beta</button>
+        </form>
+      </div>
+    </section>
+  </main>
 
   <footer>
     <div>
+      <span>&copy; 2026 New Skool Media — All rights reserved.</span>
+      |
       <a href="mailto:innovation@newskoolmedia.world">Contact</a>
       |
-      <a href="https://linkedin.com/company/new-skool-media-world" target="_blank" rel="noopener noreferrer">Linkedin</a>
+      <a href="https://linkedin.com/company/new-skool-media-world" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       |
       <a href="/privacy.html">Privacy Policy</a>
       |
       <a href="/terms.html">Terms of Use</a>
     </div>
-    <div style="margin-top: 10px;">
-      © 2026 New Skool Media. All rights reserved.
-    </div>
   </footer>
-
 </body>
 </html>
-

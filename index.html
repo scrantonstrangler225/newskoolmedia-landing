@@ -225,6 +225,8 @@
         
         <!-- Form with an ID -->
         <form 
+          class="beta-form"
+          id="betaForm" 
           action="https://docs.google.com/forms/d/e/1FAIpQLScyG6QxV-8NFA5OHqH4GCbLPHcp3AeDaXR0zzymCDD7g9iojg/formResponse" 
           method="POST" 
           target="_blank" 
@@ -285,7 +287,6 @@
             <option value="Other">Other</option>
           </select>
 
-        
           <label for="platformExcitement">What are you most excited to see in a new podcasting platform? *</label>
           <select 
             id="platformExcitement" 
@@ -302,7 +303,6 @@
             <option value="HostingTools">Hosting & distribution tools</option>
             <option value="Other">Other</option>
           </select>
-          
 
           <button type="submit">Join Beta</button>
         </form>
@@ -337,15 +337,21 @@
     form.addEventListener("submit", function(e) {
       e.preventDefault();
 
-      // Show the "Thank You" message
-      form.style.display = "none";
-      thankYouMessage.style.display = "block";
-  
-      // Submit the form normally (open in a new tab)
-      setTimeout(function () {
-        form.submit();
-      }, 300); // Small delay to show the "Thank You" message
-  });
+      const formData = new FormData(form);
+
+      fetch(form.action, {
+        method: "POST",
+        mode: "no-cors",
+        body: formData
+      }).then(() => {
+        form.classList.add("fade-out");
+
+        setTimeout(() => {
+          form.style.display = "none";
+          thankYou.style.display = "block";
+        }, 400);
+      });
+    });
   </script>
 </body>
 </html>

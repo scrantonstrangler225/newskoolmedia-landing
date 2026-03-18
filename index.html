@@ -337,27 +337,15 @@
     form.addEventListener("submit", function(e) {
       e.preventDefault();
 
-      const formData = new FormData(form);
-
-      fetch(form.action, {
-        method: "POST",
-        mode: "no-cors",
-        body: formData
-      }).then((response) => {
-      if (response.ok || response.status === 200) {
-        // Hide form and show the "Thank You" message
-        form.style.display = "none";
-        thankYou.style.display = "block";
-      } else {
-        console.error("Form submission failed:", response);
-        // Optionally show an error message
-      }
-    })
-    .catch((error) => {
-      console.error("Error submitting form:", error);
-      // Optionally show an error message
-    });
-});
+      // Show the "Thank You" message
+      form.style.display = "none";
+      thankYouMessage.style.display = "block";
+  
+      // Submit the form normally (open in a new tab)
+      setTimeout(function () {
+        form.submit();
+      }, 300); // Small delay to show the "Thank You" message
+  });
   </script>
 </body>
 </html>

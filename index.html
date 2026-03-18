@@ -225,12 +225,8 @@
         
         <!-- Form with an ID -->
         <form 
-          class="beta-form"
           id="betaForm" 
-          action="https://docs.google.com/forms/d/e/1FAIpQLScyG6QxV-8NFA5OHqH4GCbLPHcp3AeDaXR0zzymCDD7g9iojg/formResponse" 
-          method="POST" 
-          target="_blank" 
-          novalidate
+      
         >
           <label for="fullName">Full Name *</label>
           <input 
@@ -337,31 +333,25 @@
     form.addEventListener("submit", function(e) {
       e.preventDefault();
 
+      // Gather form data
       const formData = new FormData(form);
+      const data = {};
+      formData.forEach((value, key) => {
+        data[key] = value;
+      });
 
-      // Show "Thank You" message
-      thankYou.style.display = "block";
-
-      // Hide form after a short delay
-      setTimeout(() => {
-        form.style.display = "none";
-      }, 500);
-
-      // Send form data using fetch to Google Forms
-      fetch(form.action, {
-        method: "POST",
-        body: formData,
-        mode: "no-cors", // Prevents CORS issues with Google Forms
+      // Submit data to Google Apps Script Web App
+      fetch('https://script.google.com/macros/s/AKfycbxDzBKRwCkbyAz31lCK7ZWc_XutPHLr-AiVASp-MiHzcpFzM5Fxw1OFKjQaZ6e337AchQ/exec', {
+        method: 'POST',
+        body: new URLSearchParams(data)
       })
       .then(response => {
-        if (response.ok) {
-          console.log("Form submitted successfully");
-        } else {
-          console.error("Failed to submit the form");
-        }
+        // Show the Thank You message after submission
+        thankYou.style.display = "block";
+        form.style.display = "none";  // Hide the form after submission
       })
       .catch(error => {
-        console.error("Error during form submission:", error);
+        console.error('Error submitting form:', error);
       });
     });
   </script>

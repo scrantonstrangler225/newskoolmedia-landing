@@ -4,14 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>New Skool Media—Beta Signup</title>
+
   <style>
     :root {
-      --primary: #00d9e8; /* Neon Blue */
-      --accent: #ff4081; /* Neon Pink */
-      --bg-dark: #121212; /* Dark background */
-      --text-light: #ffffff; /* Light text */
-      --text-muted: #bbbbbb; /* Muted text */
-      --button-hover: #ff80c0; /* Hover effect for buttons */
+      --primary: #00d9e8;
+      --accent: #ff4081;
+      --bg-dark: #121212;
+      --text-light: #ffffff;
+      --text-muted: #bbbbbb;
+      --button-hover: #ff80c0;
     }
 
     * {
@@ -25,11 +26,6 @@
       color: var(--text-light);
       background: var(--bg-dark);
       line-height: 1.6;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
     }
 
     .container {
@@ -65,11 +61,8 @@
       padding: 0.6rem 1.3rem;
       border-radius: 6px;
       font-weight: bold;
-      transition: background 0.2s ease;
       cursor: pointer;
-      display: inline-block;
       border: none;
-      font-size: 1rem;
     }
 
     .cta:hover {
@@ -83,12 +76,10 @@
       text-align: center;
       padding: 100px 20px 80px;
       background: linear-gradient(135deg, var(--primary), var(--accent));
-      color: var(--text-light);
     }
 
     .hero h1 {
       font-size: 2.7rem;
-      max-width: 800px;
       margin-bottom: 1rem;
     }
 
@@ -117,20 +108,22 @@
       background: #2a2a2a;
       padding: 30px;
       border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
       text-align: left;
+      transition: opacity 0.4s ease;
+    }
+
+    .beta-form.fade-out {
+      opacity: 0;
     }
 
     .beta-form label {
       display: block;
       margin-bottom: 6px;
       font-weight: 600;
-      color: var(--text-light);
     }
 
     .beta-form input,
-    .beta-form select,
-    .beta-form textarea {
+    .beta-form select {
       width: 100%;
       padding: 10px;
       margin-bottom: 20px;
@@ -148,9 +141,7 @@
       border: none;
       border-radius: 6px;
       font-weight: bold;
-      font-size: 1rem;
       cursor: pointer;
-      transition: background 0.2s ease;
       display: block;
       margin: 0 auto;
     }
@@ -159,8 +150,32 @@
       background: var(--button-hover);
     }
 
+    /* THANK YOU STATE */
+    #thankYouMessage {
+      display: none;
+      text-align: center;
+      margin-top: 20px;
+      animation: fadeIn 0.6s ease forwards;
+    }
+
+    #thankYouMessage h3 {
+      color: var(--primary);
+      margin-bottom: 10px;
+      font-size: 1.8rem;
+    }
+
+    #thankYouMessage p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     footer {
-      padding: 40px 20px;
+      padding: 40px;
       text-align: center;
       font-size: 0.9rem;
       color: var(--text-muted);
@@ -168,137 +183,97 @@
 
     footer a {
       color: var(--primary);
-      text-decoration: none;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
-
-    @media (max-width: 768px) {
-      .hero {
-        padding: 60px 20px;
-      }
-      .hero h1 {
-        font-size: 2rem;
-      }
     }
   </style>
 </head>
+
 <body>
-  <header>
-    <div class="container nav">
-      <div class="logo">New Skool Media</div>
-    </div>
-  </header>
 
-  <main>
-    <section class="hero" id="home">
-     <h1>Athletes. Stories. Impact</h1>
-      <p>A unique platform where athletes and creators connect with fans through powerful stories, original podcasts, and exclusive content. .</p>
-      <a href="#join-beta" class="cta">Join the Beta</a>
-    </section>
+<header>
+  <div class="container nav">
+    <div class="logo">New Skool Media</div>
+  </div>
+</header>
 
-    <section class="beta-section" id="join-beta">
-      <div class="container">
-        <h2 class="beta-title">Join the New Skool Media Beta</h2>
-        <form 
-          class="beta-form"
-          action="https://docs.google.com/forms/d/e/1FAIpQLScyG6QxV-8NFA5OHqH4GCbLPHcp3AeDaXR0zzymCDD7g9iojg/formResponse" 
-          method="POST" 
-          target="_blank" 
-          novalidate
-        >
-          <label for="fullName">Full Name *</label>
-          <input 
-            type="text" 
-            id="fullName" 
-            name="entry.349499540" 
-            required 
-            placeholder="Your full name" 
-          />
+<main>
+  <section class="hero">
+    <h1>Athletes. Stories. Impact</h1>
+    <p>A unique platform where athletes and creators connect with fans through powerful stories, podcasts, and exclusive content.</p>
+    <a href="#join-beta" class="cta">Join the Beta</a>
+  </section>
 
-          <label for="email">Email Address *</label>
-          <input 
-            type="email" 
-            id="email" 
-            name="entry.1588363116" 
-            required 
-            placeholder="you@example.com" 
-          />
+  <section class="beta-section" id="join-beta">
+    <div class="container">
+      <h2 class="beta-title">Join the New Skool Media Beta</h2>
 
-          <label for="role">I am a *</label>
-          <select 
-            id="role" 
-            name="entry.2102156883" 
-            required
-          >
-            <option value="" disabled>Select your role</option>
-            <option value="Team/League">Team/League</option>
-            <option value="Local Organization">Local Organization</option>
-            <option value="Content Creator">Content Creator</option>
-            <option value="Coach/Scout">Scout</option>
-            <option value="Coach/Scout">Coach</option>
-            <option value="Athletic Director">Athletic Director</option>
-            <option value="Other">Other</option>
-          </select>
+      <form 
+        id="betaForm"
+        class="beta-form"
+        action="https://docs.google.com/forms/d/e/1FAIpQLScyG6QxV-8NFA5OHqH4GCbLPHcp3AeDaXR0zzymCDD7g9iojg/formResponse"
+        method="POST"
+      >
 
-          <label for="sport">Select Sport *</label>
-          <select 
-            id="sport" 
-            name="entry.1168732002" 
-            required
-          >
-            <option value="" disabled selected>Select a sport</option>
-            <option value="NFL">NFL</option>
-            <option value="MLS">MLS</option>
-            <option value="NBA">NBA</option>
-            <option value="NHL">NHL</option>
-            <option value="MMA">MMA / Combat Sports</option>
-            <option value="Motorsports">Motorsports / F1</option>
-            <option value="Golf">Golf</option>
-            <option value="Tennis">Tennis / Pickleball</option>
-            <option value="CollegeSports">College Sports</option>
-            <option value="Cricket">Cricket</option>
-            <option value="MLB">MLB</option>
-            <option value="Other">Other</option>
-          </select>
+        <label>Full Name *</label>
+        <input type="text" name="entry.349499540" required />
 
-          <label for="platformExcitement">What are you most excited to see in a new podcasting platform? *</label>
-          <select 
-            id="platformExcitement" 
-            name="entry.2141214542" 
-            required
-          >
-            <option value="" disabled selected>Select your excitement</option>
-            <option value="AudienceAnalytics">Better audience analytics</option>
-            <option value="FanEngagement">Easier fan engagement</option>
-            <option value="Discoverability">Discoverability & promotion tools</option>
-            <option value="Monetization">Monetization options</option>
-            <option value="LiveAudio">Live audio or fan call-ins</option>
-            <option value="Collaboration">Podcast collaboration features</option>
-            <option value="HostingTools">Hosting & distribution tools</option>
-            <option value="Other">Other</option>
-          </select>
+        <label>Email *</label>
+        <input type="email" name="entry.1588363116" required />
 
-          <button type="submit">Join Beta</button>
-        </form>
+        <label>I am a *</label>
+        <select name="entry.2102156883" required>
+          <option value="">Select</option>
+          <option>Team/League</option>
+          <option>Content Creator</option>
+          <option>Coach</option>
+        </select>
+
+        <label>Sport *</label>
+        <select name="entry.1168732002" required>
+          <option value="">Select</option>
+          <option>NBA</option>
+          <option>NFL</option>
+          <option>MLS</option>
+        </select>
+
+        <button type="submit">Join Beta</button>
+      </form>
+
+      <div id="thankYouMessage">
+        <h3>🚀 You're In!</h3>
+        <p>Welcome to New Skool Media beta.<br>We’ll be in touch soon.</p>
       </div>
-    </section>
-  </main>
 
-  <footer>
-    <div>
-      <span>&copy; 2026 New Skool Media — All rights reserved.</span>
-      |
-      <a href="mailto:innovation@newskoolmedia.world">Contact</a>
-      |
-      <a href="https://linkedin.com/company/new-skool-media-world" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-      |
-      <a href="/privacy.html">Privacy Policy</a>
-      |
-      <a href="/terms.html">Terms of Use</a>
     </div>
-  </footer>
+  </section>
+</main>
+
+<footer>
+  <p>© 2026 New Skool Media</p>
+</footer>
+
+<script>
+  const form = document.getElementById("betaForm");
+  const thankYou = document.getElementById("thankYouMessage");
+
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+
+    fetch(form.action, {
+      method: "POST",
+      mode: "no-cors",
+      body: formData
+    }).then(() => {
+      form.classList.add("fade-out");
+
+      setTimeout(() => {
+        form.style.display = "none";
+        thankYou.style.display = "block";
+      }, 400);
+    });
+  });
+</script>
+
 </body>
 </html>

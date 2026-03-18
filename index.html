@@ -339,17 +339,29 @@
 
       const formData = new FormData(form);
 
+      // Show "Thank You" message
+      thankYou.style.display = "block";
+
+      // Hide form after a short delay
+      setTimeout(() => {
+        form.style.display = "none";
+      }, 500);
+
+      // Send form data using fetch to Google Forms
       fetch(form.action, {
         method: "POST",
-        mode: "no-cors",
-        body: formData
-      }).then(() => {
-        form.classList.add("fade-out");
-
-        setTimeout(() => {
-          form.style.display = "none";
-          thankYou.style.display = "block";
-        }, 400);
+        body: formData,
+        mode: "no-cors", // Prevents CORS issues with Google Forms
+      })
+      .then(response => {
+        if (response.ok) {
+          console.log("Form submitted successfully");
+        } else {
+          console.error("Failed to submit the form");
+        }
+      })
+      .catch(error => {
+        console.error("Error during form submission:", error);
       });
     });
   </script>

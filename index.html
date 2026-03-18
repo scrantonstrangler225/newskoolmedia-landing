@@ -337,18 +337,18 @@
     form.addEventListener("submit", function(e) {
       e.preventDefault();
 
-      // Show the Thank You message right after the submit
-      thankYou.style.display = "block";
+      fetch(form.action, {
+        method: "POST",
+        mode: "no-cors",
+        body: formData
+      }).then(() => {
+        form.classList.add("fade-out");
 
-      // Hide the form
-      setTimeout(() => {
-        form.style.display = "none";
-      }, 500);
-
-      // Submit the form normally after a short delay (necessary for Google Forms)
-      setTimeout(() => {
-        form.submit();  // Native form submission to Google Forms
-      }, 1000);
+        setTimeout(() => {
+          form.style.display = "none";
+          thankYou.style.display = "block";
+        }, 400);
+      });
     });
   </script>
 </body>

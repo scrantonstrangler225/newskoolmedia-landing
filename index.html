@@ -343,15 +343,21 @@
         method: "POST",
         mode: "no-cors",
         body: formData
-      }).then(() => {
-        form.classList.add("fade-out");
-
-        setTimeout(() => {
-          form.style.display = "none";
-          thankYou.style.display = "block";
-        }, 400);
-      });
+      }).then((response) => {
+      if (response.ok || response.status === 200) {
+        // Hide form and show the "Thank You" message
+        form.style.display = "none";
+        thankYou.style.display = "block";
+      } else {
+        console.error("Form submission failed:", response);
+        // Optionally show an error message
+      }
+    })
+    .catch((error) => {
+      console.error("Error submitting form:", error);
+      // Optionally show an error message
     });
+});
   </script>
 </body>
 </html>

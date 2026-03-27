@@ -159,6 +159,12 @@
     .beta-form button:hover {
       background: var(--button-hover);
     }
+    
+
+    .hidden-iframe {
+      display: none;
+    }
+    
 
     /* THANK YOU STATE */
     #thankYouMessage {
@@ -330,50 +336,22 @@
     </div>
   </footer>
 
+   <!-- Hidden iframe for submitting the form -->
+  <iframe name="hiddenIframe" class="hidden-iframe"></iframe>
+  
   <script>
-    const form = document.getElementById("betaForm");
-    const thankYou = document.getElementById("thankYouMessage");
+    const form = document.getElementById('betaForm');
+    const iframe = document.querySelector('.hidden-iframe');
 
-    form.addEventListener("submit", function(e) {
-      e.preventDefault();
-
-      const formData = new FormData(form);
-      const payload = new URLSearchParams();  // To send data in 'application/x-www-form-urlencoded'
-
-      // Convert FormData into URLSearchParams (correct encoding format for Google Forms)
-      formData.forEach((value, key) => {
-        payload.append(key, value);
-      });
-
-      // Show Thank You message
-      const thankYou = document.getElementById("thankYouMessage");
-      thankYou.style.display = "block";
-
-      // Hide form after a short delay
-      setTimeout(() => {
-        form.style.display = "none";
-      }, 500);
-
-      // Send the data via fetch with correct encoding
-      fetch(form.action, {
-        method: "POST",
-        body: payload,  // Send the properly formatted data
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',  // Correct encoding for Google Forms
-        },
-        mode: "no-cors",  // Prevents CORS issues
-      })
-      .then(response => {
-        if (response.ok) {
-          console.log("Form submitted successfully");
-        } else {
-          console.error("Failed to submit the form");
-        }
-      })
-      .catch(error => {
-        console.error("Error during form submission:", error);
-      });
-    });
+    // Detect when the iframe content is loaded (successful submission)
+    iframe.onload = function() {
+      // Display a thank you message when the iframe reloads
+      alert("Thank you for signing up! Your submission has been received.");
+      
+      // Optionally, reset the form and hide it after submission
+      form.reset();
+      form.style.display = 'none';  // Hide the form after submission
+    };
   </script>
 </body>
 </html>

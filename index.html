@@ -361,6 +361,7 @@
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',  // Correct encoding for Google Forms
         },
+        mode: "no-cors",  // Prevents CORS issues
       })
       .then(response => {
         if (response.ok) {

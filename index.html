@@ -365,12 +365,8 @@
         },
         mode: "no-cors",  // Prevents CORS issues
       })
-      .then(response => {
-        if (response.ok) {
+      .then(() => {
           console.log("Form submitted successfully");
-        } else {
-          console.error("Failed to submit the form");
-        }
       })
       .catch(error => {
         console.error("Error during form submission:", error);

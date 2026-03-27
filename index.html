@@ -331,50 +331,6 @@
   </footer>
 
   
-  <script>
-    const form = document.getElementById("betaForm");
-    const thankYou = document.getElementById("thankYouMessage");
-
-    form.addEventListener("submit", function(e) {
-      e.preventDefault();
-
-      const formData = new FormData(form);
-      const payload = new URLSearchParams();  // To send data in 'application/x-www-form-urlencoded'
-
-      // Convert FormData into URLSearchParams (correct encoding format for Google Forms)
-      formData.forEach((value, key) => {
-        payload.append(key, value);
-      });
-
-      // Show Thank You message
-      const thankYou = document.getElementById("thankYouMessage");
-      thankYou.style.display = "block";
-
-      // Hide form after a short delay
-      setTimeout(() => {
-        form.style.display = "none";
-      }, 500);
-
-      // Send the data via fetch with correct encoding
-      fetch("https://script.google.com/macros/s/AKfycbw5XN4wEfH7mcU9KFHynzE4eZ-7Igz5tASm9DvNZhNR0o-aDUyio9R0q4ONXUA3ZPEy/exec", {
-        method: "POST",
-        body: payload,  // Send the properly formatted data
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',  // Correct encoding for Google Forms
-        },
-        mode: "no-cors",  // Prevents CORS issues
-      })
-      .then(response => {
-        if (response.ok) {
-          console.log("Form submitted successfully");
-        } else {
-          console.error("Failed to submit the form");
-        }
-      })
-      .catch(error => {
-        console.error("Error during form submission:", error);
-      });
-    });
-  </script>
+  
 </body>
 </html>

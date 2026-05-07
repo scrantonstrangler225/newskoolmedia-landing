@@ -222,39 +222,39 @@
     <section class="beta-section" id="join-beta">
       <div class="container">
         <h2 class="beta-title">Join the New Skool Media Beta</h2>
-        
+
         <!-- Form with an ID -->
-        <form 
+        <form
           class="beta-form"
-          id="betaForm" 
-          action="https://docs.google.com/forms/d/e/1FAIpQLScyG6QxV-8NFA5OHqH4GCbLPHcp3AeDaXR0zzymCDD7g9iojg/formResponse" 
-          method="POST" 
-          target="_blank" 
+          id="betaForm"
+          action="https://docs.google.com/forms/d/e/1FAIpQLScyG6QxV-8NFA5OHqH4GCbLPHcp3AeDaXR0zzymCDD7g9iojg/formResponse"
+          method="POST"
+          target="_blank"
           novalidate
         >
           <label for="fullName">Full Name *</label>
-          <input 
-            type="text" 
-            id="fullName" 
-            name="entry.349499540" 
-            required 
-            placeholder="Your full name" 
+          <input
+            type="text"
+            id="fullName"
+            name="entry.349499540"
+            required
+            placeholder="Your full name"
           />
 
           <label for="email">Email Address *</label>
-          <input 
-            type="email" 
-            id="email" 
+          <input
+            type="email"
+            id="email"
             autocomplete="off"
-            name="entry.1588363116" 
-            required 
-            placeholder="you@example.com" 
+            name="entry.1588363116"
+            required
+            placeholder="you@example.com"
           />
 
           <label for="role">I am a *</label>
-          <select 
-            id="role" 
-            name="entry.2102156883" 
+          <select
+            id="role"
+            name="entry.2102156883"
             required
           >
             <option value="" disabled>Select your role</option>
@@ -268,9 +268,9 @@
           </select>
 
           <label for="sport">Select Sport *</label>
-          <select 
-            id="sport" 
-            name="entry.1168732002" 
+          <select
+            id="sport"
+            name="entry.1168732002"
             required
           >
             <option value="" disabled selected>Select a sport</option>
@@ -278,30 +278,30 @@
             <option value="MLS">MLS</option>
             <option value="NBA">NBA</option>
             <option value="NHL">NHL</option>
-            <option value="MMA">MMA / Combat Sports</option>
-            <option value="Motorsports">Motorsports / F1</option>
+            <option value="MMA / Combat Sports">MMA / Combat Sports</option>
+            <option value="Motorsports / F1">Motorsports / F1</option>
             <option value="Golf">Golf</option>
-            <option value="Tennis">Tennis / Pickleball</option>
-            <option value="CollegeSports">College Sports</option>
+            <option value="Tennis / Pickleball">Tennis / Pickleball</option>
+            <option value="College Sports">College Sports</option>
             <option value="Cricket">Cricket</option>
             <option value="MLB">MLB</option>
             <option value="Other">Other</option>
           </select>
 
           <label for="platformExcitement">What are you most excited to see in a new podcasting platform? *</label>
-          <select 
-            id="platformExcitement" 
-            name="entry.2141214542" 
+          <select
+            id="platformExcitement"
+            name="entry.2141214542"
             required
           >
             <option value="" disabled selected>Select your excitement</option>
-            <option value="AudienceAnalytics">Better audience analytics</option>
-            <option value="FanEngagement">Easier fan engagement</option>
-            <option value="Discoverability">Discoverability & promotion tools</option>
-            <option value="Monetization">Monetization options</option>
-            <option value="LiveAudio">Live audio or fan call-ins</option>
-            <option value="Collaboration">Podcast collaboration features</option>
-            <option value="HostingTools">Hosting & distribution tools</option>
+            <option value="Better audience analytics">Better audience analytics</option>
+            <option value="Easier fan engagement">Easier fan engagement</option>
+            <option value="Discoverability / promotion tools">Discoverability / promotion tools</option>
+            <option value="Monetization options">Monetization options</option>
+            <option value="Live audio or fan call-ins">Live audio or fan call-ins</option>
+            <option value="Podcast collaboration features">Podcast collaboration features</option>
+            <option value="Hosting / distribution tools">Hosting / distribution tools</option>
             <option value="Other">Other</option>
           </select>
 
@@ -315,6 +315,7 @@
         </div>
       </div>
     </section>
+
   </main>
 
   <footer>
@@ -331,8 +332,7 @@
     </div>
   </footer>
 
-  
-  <script>
+<script>
 document.getElementById('betaForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Stop default Google Form redirect
     const form = event.target;
